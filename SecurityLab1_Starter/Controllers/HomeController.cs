@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel.CalcEngine.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,11 @@ namespace SecurityLab1_Starter.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult GenError()
+        {
+            throw new DivideByZeroException();
             return View();
         }
     }

@@ -20,6 +20,28 @@
                 <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })</li>
                 <li>@Html.ActionLink("Inventory Pricing", "Index", "Inventory", null, new { @class = "nav-item nav-link" })</li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <form method="post" action="~/Account/Logout">
+                            <button type="submit" class="nav-link btn btn-link py-0" style="width: auto">
+                                Logout @User.Identity.Name
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <form method="get" action="~/Account/Login">
+                            <button type="submit" class="nav-link btn btn-link py-0" style="width: auto">
+                                Login
+                            </button>
+                        </form>
+                    </li>
+                }
+            </ul>
         </div>
     </nav>
     </div>
